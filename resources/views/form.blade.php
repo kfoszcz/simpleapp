@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('scripts')
+	<script src="{{ asset('js/asyncform.js') }}" defer></script>
+@endsection
+
 @section('content')
 <div class="container">
 	{!! Form::open(['files' => true]) !!}
@@ -21,7 +25,7 @@
 
 	{!! Form::close() !!}
 
-	<button class="btn btn-primary">
+	<button class="btn btn-primary" id="submit">
 		Wyślij
 	</button>
 </div>
