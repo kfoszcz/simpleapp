@@ -6,7 +6,10 @@
 
 @section('content')
 <div class="container">
-	{!! Form::open(['files' => true]) !!}
+	<div id="message"></div>
+	
+
+	{!! Form::open(['files' => true, 'id' => 'form']) !!}
 	
 		<div class="form-group">
 			{!! Form::label('firstname', 'Imię') !!}
@@ -23,10 +26,12 @@
 			{!! Form::file('file') !!}
 		</div>
 
+		<button class="btn btn-primary" id="submit">
+			Wyślij
+		</button>
+
 	{!! Form::close() !!}
 
-	<button class="btn btn-primary" id="submit">
-		Wyślij
-	</button>
+	
 </div>
 @endsection

@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('form');
 });
 
+Route::post('/', 'HomeController@save');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

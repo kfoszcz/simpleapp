@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -24,5 +24,24 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
-    }
+	}
+	
+	public function save(Request $request) {
+		$validated = $this->validate($request, [
+			'firstname' => 'required',
+			'file' => 'mimes:jpeg,png'
+		], [
+			'firstname.required' => 'Pole imię jest wymagane.',
+			'file.mimes' => 'Plik musi być w formacie JPG lub PNG.'
+		]);
+
+		// code below is executed only if validation was successful
+		
+		$response = [
+			'firstname' => $request->input('firstname'),
+			'lastname' => $request->input('lastname'),
+			'file' => $request->hasFile('file')
+		];
+		return $response;
+	}
 }
