@@ -1,7 +1,7 @@
 ## Instalacja i konfiguracja
 ### 1. Pobieramy projekt poleceniem
 ```bash
-git clone git@github.com:kfoszcz/simpleapp.git
+git clone https://github.com/kfoszcz/simpleapp.git
 ```
 
 ### 2. Wchodzimy do katalogu projektu i pobieramy zależności composera
