@@ -12,7 +12,7 @@ $('form#form').submit(function(e) {
 		processData: false,
 		contentType: false,
 		success: function(result) {
-			$('#message').append(
+			$('#message').html(
 				`<div class="alert alert-success alert-dismissible" role="alert">
 					Dane zostały pomyślnie zapisane.
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -24,14 +24,15 @@ $('form#form').submit(function(e) {
 			var errors = error.responseJSON.errors;
 			var errorsArray = [];
 
-			for (error in errors) {
+			for (let error in errors) {
 				if (errors.hasOwnProperty(error)) {
 					errorsArray.push(...errors[error]);
 				}
 			}
 
-			$('#message').append(
+			$('#message').html(
 				`<div class="alert alert-danger alert-dismissible" role="alert">
+					<strong>Błąd ${error.status}</strong><br>
 					${errorsArray.join('<br>')}
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>

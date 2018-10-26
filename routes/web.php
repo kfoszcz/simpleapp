@@ -11,12 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('form');
-});
-
+Route::get('/', 'HomeController@form')->name('home');
+Route::get('/table', 'HomeController@table')->middleware('auth')->name('table');
+Route::get('/images/{name}', 'HomeController@image')->middleware('auth');
 Route::post('/', 'HomeController@save');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
